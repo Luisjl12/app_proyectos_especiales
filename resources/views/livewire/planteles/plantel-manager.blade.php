@@ -2,7 +2,7 @@
     {{-- Mensaje flash --}}
     @if (session('message'))
         <div class="mb-4 rounded-lg bg-green-50 border border-green-200 text-green-800 px-4 py-3">
-            ✅ {{ session('message') }}
+            {{ session('message') }}
         </div>
     @endif
 
