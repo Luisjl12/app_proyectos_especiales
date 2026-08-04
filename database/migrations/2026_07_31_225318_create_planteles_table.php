@@ -29,8 +29,26 @@ return new class extends Migration
             $table->string('domicilio_calle_numero')->nullable();  
             $table->string('domicilio_colonia')->nullable(); 
             $table->string('domicilio_cp')->nullable(); 
-
+            $table->string('telefono_plantel')->nullable(); 
+            $table->string('correo_institucional')->nullable(); 
             
+            //Accesibilidad
+            $table->boolean('accesibilidad_rampas')->default(false); 
+            $table->boolean('accesibilidad_banos_adaptados')->default(false); 
+            $table->boolean('accesibilidad_senaletica_braile')->default(false); 
+            $table->text('accesibilidad_otros')->nullable(); 
+
+            //Total de alumnos y maestros
+            $table->integer('total_alumnos')->nullable(); 
+            $table->integer('total_docentes')->nullable(); 
+            $table->integer('total_adiministrativos')->nullable(); 
+            
+            //Latitud y longitud 
+            $table->decimal('latitud', 10, 8)->nullable(); 
+            $table->decimal('longitud', 11, 8)->nullable();
+            
+            //Estatus
+            $table->enum('estatus_plantel', ['Activo', 'Inactivo', 'En revision'])->default('En revision'); 
             $table->timestamps();
         });
     }
